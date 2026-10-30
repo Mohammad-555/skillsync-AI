@@ -1,0 +1,68 @@
+.soft-aurora-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.soft-aurora-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  pointer-events: none;
+  contain: strict;
+  transform: translate3d(0, 0, 0);
+}
+
+.soft-aurora-bg-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transition: opacity 0.4s ease;
+  contain: strict;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Subtle modern dot-matrix tech grid overlay for visual depth */
+.soft-aurora-bg-fixed::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+[data-theme="light"] .soft-aurora-bg-fixed {
+  opacity: 0.95;
+  background: radial-gradient(circle at 12% 15%, rgba(224, 231, 255, 0.75) 0%, transparent 55%),
+              radial-gradient(circle at 88% 75%, rgba(243, 232, 255, 0.75) 0%, transparent 55%),
+              #f8fafc;
+}
+
+[data-theme="dark"] .soft-aurora-bg-fixed {
+  opacity: 0.95;
+  background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.14) 0%, transparent 60%),
+              #070b14;
+}
+
+[data-theme="dark"] .soft-aurora-bg-fixed::after {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  opacity: 0.45;
+}
